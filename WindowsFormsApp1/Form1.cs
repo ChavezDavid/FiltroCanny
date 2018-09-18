@@ -49,9 +49,22 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            Image<Gray, byte> imgCanny = new Image<Gray, byte>(imgInput.Width,imgInput.Height, new Gray(0));
+            Image<Gray, byte> imgCanny = new Image<Gray, byte>(imgInput.Width, imgInput.Height, new Gray(0));
             imgCanny = imgInput.Canny(50, 30);
             imageBox1.Image = imgCanny;
+        }
+
+        private void sobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (imgInput == null)
+            {
+                return;
+            }
+
+            Image<Gray, byte> imgGray = imgInput.Convert<Gray, byte>();
+            Image<Gray, float> imgSobel = new Image<Gray, float>(imgInput.Width, imgInput.Height, new Gray(0));
+            imgSobel = imgGray.Sobel(29, 29, 31);
+            imageBox1.Image = imgSobel;
         }
     }
 }
