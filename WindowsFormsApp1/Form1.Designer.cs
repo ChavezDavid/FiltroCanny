@@ -121,6 +121,7 @@
             this.laplacianToolStripMenuItem.Name = "laplacianToolStripMenuItem";
             this.laplacianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.laplacianToolStripMenuItem.Text = "Laplacian";
+            this.laplacianToolStripMenuItem.Click += new System.EventHandler(this.laplacianToolStripMenuItem_Click);
             // 
             // imageBox1
             // 

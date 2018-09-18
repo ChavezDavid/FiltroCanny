@@ -66,5 +66,13 @@ namespace WindowsFormsApp1
             imgSobel = imgGray.Sobel(29, 29, 31);
             imageBox1.Image = imgSobel;
         }
+
+        private void laplacianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image<Gray, byte> imgGray = imgInput.Convert<Gray, byte>();
+            Image<Gray, float> imgLaplace = new Image<Gray, float>(imgInput.Width, imgInput.Height, new Gray(0));
+            imgLaplace = imgGray.Laplace(7);
+            imageBox1.Image = imgLaplace;
+        }
     }
 }
