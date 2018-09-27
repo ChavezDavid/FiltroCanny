@@ -44,13 +44,18 @@ namespace WindowsFormsApp1
 
         private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(imgInput == null)
+            ApplyCanny();
+        }
+
+        public void ApplyCanny(double thresh = 50.0, double threshLink = 20.0)
+        {
+            if (imgInput == null)
             {
                 return;
             }
 
             Image<Gray, byte> imgCanny = new Image<Gray, byte>(imgInput.Width, imgInput.Height, new Gray(0));
-            imgCanny = imgInput.Canny(50, 30);
+            imgCanny = imgInput.Canny(thresh, threshLink);
             imageBox1.Image = imgCanny;
         }
 
@@ -73,6 +78,11 @@ namespace WindowsFormsApp1
             Image<Gray, float> imgLaplace = new Image<Gray, float>(imgInput.Width, imgInput.Height, new Gray(0));
             imgLaplace = imgGray.Laplace(7);
             imageBox1.Image = imgLaplace;
+        }
+
+        private void cannyParametersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CannyParameters cp = new WindowsFormsApp1.CannyParameters(this);
         }
     }
 }
