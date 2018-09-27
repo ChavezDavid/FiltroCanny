@@ -41,6 +41,8 @@
             this.laplacianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageBox1 = new Emgu.CV.UI.ImageBox();
             this.cannyParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobelParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.laplacianParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
@@ -99,7 +101,9 @@
             this.cannyToolStripMenuItem,
             this.sobelToolStripMenuItem,
             this.laplacianToolStripMenuItem,
-            this.cannyParametersToolStripMenuItem});
+            this.cannyParametersToolStripMenuItem,
+            this.sobelParametersToolStripMenuItem,
+            this.laplacianParametersToolStripMenuItem});
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.abrirToolStripMenuItem.Text = "Edges";
@@ -141,6 +145,20 @@
             this.cannyParametersToolStripMenuItem.Text = "Canny Parameters";
             this.cannyParametersToolStripMenuItem.Click += new System.EventHandler(this.cannyParametersToolStripMenuItem_Click);
             // 
+            // sobelParametersToolStripMenuItem
+            // 
+            this.sobelParametersToolStripMenuItem.Name = "sobelParametersToolStripMenuItem";
+            this.sobelParametersToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.sobelParametersToolStripMenuItem.Text = "Sobel Parameters";
+            this.sobelParametersToolStripMenuItem.Click += new System.EventHandler(this.sobelParametersToolStripMenuItem_Click);
+            // 
+            // laplacianParametersToolStripMenuItem
+            // 
+            this.laplacianParametersToolStripMenuItem.Name = "laplacianParametersToolStripMenuItem";
+            this.laplacianParametersToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.laplacianParametersToolStripMenuItem.Text = "Laplacian Parameters";
+            this.laplacianParametersToolStripMenuItem.Click += new System.EventHandler(this.laplacianParametersToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +192,8 @@
         private System.Windows.Forms.ToolStripMenuItem laplacianToolStripMenuItem;
         private Emgu.CV.UI.ImageBox imageBox1;
         private System.Windows.Forms.ToolStripMenuItem cannyParametersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobelParametersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem laplacianParametersToolStripMenuItem;
     }
 }
 

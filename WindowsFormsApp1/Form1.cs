@@ -61,6 +61,11 @@ namespace WindowsFormsApp1
 
         private void sobelToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ApplySobel();
+        }
+
+        public void ApplySobel(int xOrder = 29, int YOrder = 27, int aperture = 31)
+        {
             if (imgInput == null)
             {
                 return;
@@ -68,21 +73,46 @@ namespace WindowsFormsApp1
 
             Image<Gray, byte> imgGray = imgInput.Convert<Gray, byte>();
             Image<Gray, float> imgSobel = new Image<Gray, float>(imgInput.Width, imgInput.Height, new Gray(0));
-            imgSobel = imgGray.Sobel(29, 29, 31);
+            imgSobel = imgGray.Sobel(xOrder, YOrder, aperture);
             imageBox1.Image = imgSobel;
         }
 
         private void laplacianToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ApplyLaplacian();
+        }
+
+        public void ApplyLaplacian( int aperture = 7)
+        {
+            if(imgInput == null){
+                return;
+            }
+
             Image<Gray, byte> imgGray = imgInput.Convert<Gray, byte>();
             Image<Gray, float> imgLaplace = new Image<Gray, float>(imgInput.Width, imgInput.Height, new Gray(0));
-            imgLaplace = imgGray.Laplace(7);
+            imgLaplace = imgGray.Laplace(aperture);
             imageBox1.Image = imgLaplace;
         }
 
         private void cannyParametersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CannyParameters cp = new WindowsFormsApp1.CannyParameters(this);
+            cp.StartPosition = FormStartPosition.CenterParent;
+            cp.Show();
+        }
+
+        private void sobelParametersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SobelParameters sp = new WindowsFormsApp1.SobelParameters(this);
+            sp.StartPosition = FormStartPosition.CenterParent;
+            sp.Show();
+        }
+
+        private void laplacianParametersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaplacianParameters lp = new WindowsFormsApp1.LaplacianParameters(this);
+            lp.StartPosition = FormStartPosition.CenterParent;
+            lp.Show();
         }
     }
 }
